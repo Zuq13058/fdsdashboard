@@ -95,7 +95,7 @@ npm run build
    npm install
    ```
 
-3. **Deploy**
+3. **Deploy (manual)**
    ```bash
    npm run deploy
    ```
@@ -106,6 +106,13 @@ npm run build
    - If you use a different repository name, update the `repoBase` constant in `vite.config.js` accordingly and re-deploy.
 
 > ⚠️ **API backend**: GitHub Pages only hosts static files. Keep the Express/BigQuery server deployed elsewhere (e.g., Render, Railway, Cloud Run) and update the frontend API base URL/environment variables so the static build can reach it.
+
+### Automatic Deployments
+
+- Every push to `main` triggers the GitHub Actions workflow in `.github/workflows/deploy.yml`.
+- The workflow installs dependencies, runs `npm run build`, and publishes `dist/` to the `gh-pages` branch using `peaceiris/actions-gh-pages`.
+- To trigger a manual redeploy, head to the repo’s **Actions** tab and run the “Deploy to GitHub Pages” workflow via **Run workflow**.
+- Ensure GitHub Pages (Settings → Pages) is configured to use the `gh-pages` branch.
 
 ## Project Structure
 

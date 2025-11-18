@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 function formatPercent(value) {
   if (value == null || Number.isNaN(value)) return '-'
   return (value * 100).toFixed(1) + '%'
-}
+}   
 
 function formatNumber(num) {
   if (num == null) return '0'
